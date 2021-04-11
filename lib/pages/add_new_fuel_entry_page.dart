@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fuel_expenses/mock/_mock.dart';
+import 'package:fuel_expenses/model/_model.dart';
 
 class AddNewFuelEntryPage extends StatefulWidget {
   @override
@@ -12,6 +14,10 @@ class _AddNewFuelEntryPageState extends State<AddNewFuelEntryPage> {
 
   @override
   Widget build(BuildContext context) {
+    final Map arguments = ModalRoute.of(context).settings.arguments;
+    final Vehicle vehicle = arguments['vehicle'];
+    String vehicleId = vehicle.id;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Add new fuel entry'),
@@ -44,12 +50,12 @@ class _AddNewFuelEntryPageState extends State<AddNewFuelEntryPage> {
           ),
           ElevatedButton(
             onPressed: () {
-              print(fuelAmountController.text +
-                  ' L, ' +
-                  priceController.text +
-                  ' RSD, ' +
-                  currentMileageController.text +
-                  ' km');
+              FuelEntriesMock.fuelEntries.add(FuelEntry(
+                  vehicleId,
+                  double.parse(fuelAmountController.text),
+                  double.parse(priceController.text),
+                  double.parse(currentMileageController.text)));
+              Navigator.of(context).pop();
             },
             child: Text('Add'),
           ),

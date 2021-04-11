@@ -68,7 +68,8 @@ class _VehicleOverviewPageState extends State<VehicleOverviewPage> {
           ),
           ElevatedButton(
             onPressed: () {
-              Navigator.of(context).pushNamed('/addNewFuelEntry');
+              Navigator.of(context).pushNamed('/addNewFuelEntry',
+                  arguments: {'vehicle': vehicle});
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
