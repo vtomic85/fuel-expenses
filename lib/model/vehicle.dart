@@ -1,14 +1,23 @@
-import 'fuel_type.dart';
+import 'package:uuid/uuid.dart';
 
 class Vehicle {
-  int id;
+  String id;
   String manufacturer;
   String model;
   int yearOfProduction;
-  String name;
+  String shortName;
   double initialMileage;
-  FuelType fuelType;
+  String fuelType;
 
-  Vehicle(this.id, this.manufacturer, this.model, this.yearOfProduction,
-      this.name, this.initialMileage, this.fuelType);
+  Vehicle(String manufacturer, String model, int yearOfProduction,
+      String shortName, double initialMileage, String fuelType) {
+    var uuid = Uuid();
+    this.id = uuid.v4();
+    this.manufacturer = manufacturer;
+    this.model = model;
+    this.yearOfProduction = yearOfProduction;
+    this.shortName = shortName;
+    this.initialMileage = initialMileage;
+    this.fuelType = fuelType;
+  }
 }

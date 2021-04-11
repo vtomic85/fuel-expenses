@@ -16,7 +16,7 @@ class _AddNewFuelEntryPageState extends State<AddNewFuelEntryPage> {
       appBar: AppBar(
         title: Text('Add new fuel entry'),
       ),
-      body: Column(
+      body: ListView(
         children: [
           Text('Fuel amount (L):'),
           TextField(

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fuel_expenses/mock/_mock.dart';
+import 'package:fuel_expenses/model/_model.dart';
 
 class AddNewVehiclePage extends StatefulWidget {
   @override
@@ -19,7 +21,7 @@ class _AddNewVehiclePageState extends State<AddNewVehiclePage> {
       appBar: AppBar(
         title: Text('Add new vehicle'),
       ),
-      body: Column(
+      body: ListView(
         children: [
           Text('Manufacturer:'),
           TextField(
@@ -64,7 +66,16 @@ class _AddNewVehiclePageState extends State<AddNewVehiclePage> {
                 setState(() {});
               }),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              VehiclesMock.vehicles.add(Vehicle(
+                  manufacturerController.text,
+                  modelController.text,
+                  int.parse(yearOfProductionController.text),
+                  shortNameController.text,
+                  double.parse(initialMileageController.text),
+                  fuelTypeController.text));
+              Navigator.of(context).pop();
+            },
             child: Text('Add'),
           ),
         ],
