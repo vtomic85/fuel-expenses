@@ -86,7 +86,9 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed('/addNewVehicle');
+              },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
