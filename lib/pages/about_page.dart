@@ -6,7 +6,11 @@ class AboutPage extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('About'),
+          backgroundColor: Colors.white,
+          title: Text(
+            'About',
+            style: TextStyle(color: Colors.blue),
+          ),
         ),
         body: Column(
           children: [
